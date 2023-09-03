@@ -12,7 +12,7 @@ import {
 //   AlertIcon,
 //   AlertTitle,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import { signInSchema } from "../utils/formValidationSchema";
 import {  useSelector } from "react-redux";
@@ -169,8 +169,9 @@ const Login = () => {
               justify={"space-between"}
               alignItems={"center"}
               fontSize={"sm"}
+              
             >
-              <Text>Forgot password</Text>
+              <Text align={"center"} mt={"30px"}>Don't have an account <span style={{fontWeight:"bolder", color:"red"}}><Link>Sign Up</Link></span></Text>
             </Flex>
           </Flex>
         </Flex>
