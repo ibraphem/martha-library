@@ -4,6 +4,7 @@ import { ChakraBaseProvider, extendTheme } from "@chakra-ui/react";
 import { Route, Routes } from "react-router-dom";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Home from "./screens/Home";
+import Books from "./screens/Books";
 
 const colors = {
   brand: {
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/" element={<Login />} />
         <Route element={<ProtectedRoutes />}>
           <Route exact path="/home" element={<Home />} />
+          <Route exact path="/books" element={<Books />} />
         </Route>
       </Routes>
     </ChakraBaseProvider>
