@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Login from "./screens/Login";
+import { ChakraBaseProvider, extendTheme } from "@chakra-ui/react";
+import { Route, Routes } from "react-router-dom";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import Home from "./screens/Home";
 
-function App() {
+const colors = {
+  brand: {
+    primary: "#D73439",
+  },
+};
+
+const theme = extendTheme({ colors });
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraBaseProvider theme={theme}>
+      <Routes>
+        <Route exact path="/" element={<Login />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route exact path="/home" element={<Home />} />
+        </Route>
+      </Routes>
+    </ChakraBaseProvider>
   );
-}
+};
 
 export default App;
